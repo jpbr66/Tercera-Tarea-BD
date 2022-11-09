@@ -1,0 +1,63 @@
+﻿@model System.Data.DataTable
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_LayoutAdministrador.cshtml";
+}
+
+<h1>Editar</h1>
+
+<h4>Propiedad</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EditPropiedad">
+            <div class="form-group">
+                <label class="control-label">Número de Finca</label>
+                <input type="number" name="numFinca" class="form-control" required autocomplete="off" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">Área</label>
+                <input type="number" name="area" class="form-control" required />
+            </div>
+            <div class="form-group">
+                <label class="control-label">Valor Fiscal</label>
+                <input type="text" name="valor" class="form-control" required />
+            </div>
+            <div class="form-group">
+                <label class="control-label">Tipo de Uso de Terreno</label>
+                <select name="tipoTerreno" class="form-control" style="inline-size:auto; display:inline" required>
+                    @{
+                        int i;
+                        for (i = 0; i < Model.Rows.Count; i++)
+                            if (Model.Rows[i][0].ToString() != "")
+                            {
+                                <option>@Model.Rows[i][0].ToString()</option>
+                            }
+                            else
+                                break;
+                    }
+
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Tipo de Zona</label>
+                <select name="tipoZona" class="form-control" style="inline-size:auto; display:inline" required>
+                    @for (i = i + 1; i < Model.Rows.Count; i++)
+                    {
+                        <option>@Model.Rows[i][0].ToString()</option>
+                    }
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Editar" class="btn btn-primary" />
+            </div>
+            <span class="text-danger">@ViewData["ErrorData"]</span>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Propiedad">Back to List</a>
+</div>
+

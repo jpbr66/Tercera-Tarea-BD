@@ -1,0 +1,55 @@
+﻿@model System.Data.DataTable
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_LayoutAdministrador.cshtml";
+}
+
+<h1>Editar</h1>
+
+<h4>Persona</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EditPersona">
+            <div class="form-group">
+                <label class="control-label">Nombre</label>
+                <input type="text" name="nombre" class="form-control" required autocomplete="off" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">Valor de documento de identidad</label>
+                <input type="number" name="valorDocId" class="form-control" required />
+            </div>
+            <div class="form-group">
+                <label class="control-label">Tipo de documento de identidad</label>
+                <select name="tipoDocId" class="form-control" style="inline-size:auto; display:inline" required>
+                    @for (int i = 0; i < Model.Rows.Count; i++)
+                    {
+                        <option>@Model.Rows[i][0].ToString()</option>
+                    }
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Email</label>
+                <input type="email" name="email" class="form-control" required />
+            </div>
+            <div class="form-group">
+                <label class="control-label">Telefono 1</label>
+                <input type="tel" pattern="[0-9]{8}" placeholder="88888888" name="telefono1" class="form-control" required />
+            </div>
+            <div class="form-group">
+                <label class="control-label">Telefono 2</label>
+                <input type="tel" pattern="[0-9]{8}" placeholder="88888888" name="telefono2" class="form-control" required />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Editar" class="btn btn-primary" />
+            </div>
+            <span class="text-danger">@ViewData["ErrorData"]</span>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Persona">Back to List</a>
+</div>
+

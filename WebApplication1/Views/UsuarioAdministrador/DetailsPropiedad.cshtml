@@ -1,0 +1,54 @@
+﻿@model System.Data.DataTable
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_LayoutAdministrador.cshtml";
+}
+
+<h1>Detalles / Consulta</h1>
+
+<div>
+    <h4>Propiedad</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Número de Finca
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Rows[0][0].ToString()
+        </dd>
+        <dt class="col-sm-2">
+            Área
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Rows[0][1].ToString()
+        </dd>
+        <dt class="col-sm-2">
+            Valor Fiscal
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Rows[0][2].ToString()
+        </dd>
+        <dt class="col-sm-2">
+            Fecha de Registro
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Rows[0][3].ToString()
+        </dd>
+        <dt class="col-sm-2">
+            Tipo de Uso de Terreno
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Rows[0][4].ToString()
+        </dd>
+        <dt class="col-sm-2">
+            Tipo de Zona
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Rows[0][5].ToString()
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Propiedad">Back to List</a>
+</div>

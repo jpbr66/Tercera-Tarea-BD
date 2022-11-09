@@ -1,0 +1,57 @@
+﻿@model System.Data.DataTable
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_LayoutAdministrador.cshtml";
+}
+
+<h1>Borrar</h1>
+
+<h3>¿Seguro que desea lo desea eliminar?</h3>
+<div>
+    <h4>Persona</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Nombre
+        </dt>
+        <dd class = "col-sm-10">
+            @Model.Rows[0][0].ToString()
+        </dd>
+        <dt class = "col-sm-2">
+            Valor de Documento de Identidad
+        </dt>
+        <dd class = "col-sm-10">
+            @Model.Rows[0][1].ToString()
+        </dd>
+        <dt class = "col-sm-2">
+            Tipo de Documento de Identidad
+        </dt>
+        <dd class = "col-sm-10">
+            @Model.Rows[0][2].ToString()
+        </dd>
+        <dt class="col-sm-2">
+            Email
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Rows[0][3].ToString()
+        </dd>
+        <dt class="col-sm-2">
+            Teléfono 1
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Rows[0][4].ToString()
+        </dd>
+        <dt class="col-sm-2">
+            Teléfono 2
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Rows[0][5].ToString()
+        </dd>
+    </dl>
+    
+    <form asp-action="DeletePersona">
+        <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+        <a asp-action="Persona">Back to List</a>
+    </form>
+</div>

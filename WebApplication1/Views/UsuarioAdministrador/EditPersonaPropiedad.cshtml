@@ -1,0 +1,34 @@
+﻿@model WebApplication1.Models.Articulo
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_LayoutAdministrador.cshtml";
+}
+
+<h1>Editar</h1>
+
+<h4>Persona-Propiedad</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EditPersonaPropiedad">
+            <div class="form-group">
+                <label class="control-label">Nombre</label>
+                <input type="number" name="numFinca" class="form-control" required autocomplete="off" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">Valor de documento de identidad</label>
+                <input type="number" name="valorDocId" class="form-control" required />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Editar" class="btn btn-primary" />
+            </div>
+            <span class="text-danger">@ViewData["ErrorData"]</span>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="PersonaPropiedad">Back to List</a>
+</div>
+
