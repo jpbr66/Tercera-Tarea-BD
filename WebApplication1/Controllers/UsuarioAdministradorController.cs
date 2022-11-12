@@ -12,7 +12,7 @@ namespace WebApplication1.Controllers
     {
         DataTable dt = new DataTable();
         SqlConnection con = new SqlConnection("Data Source=JPBR66\\SQLEXPRESS;" +
-                "Initial Catalog=SegundaTarea;Integrated Security=SSPI");
+                "Initial Catalog=TerceraTarea;Integrated Security=SSPI");
         int outResult = 0;
         // GET: HomeController1
         public ActionResult Persona()
